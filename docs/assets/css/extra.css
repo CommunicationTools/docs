@@ -1,0 +1,11 @@
+/* Show screenshots larger: up to 1200px wide, shrinking on narrow screens.
+   The content column is widened so a 1200px image has room to display. */
+.md-grid {
+  max-width: 76rem;            /* ~1216px, room for a 1200px image + gutters */
+}
+
+.md-typeset img {
+  width: 1200px;
+  max-width: 100%;             /* responsive: never wider than the column */
+  height: auto;
+}

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 720 240"
+   role="img"
+   aria-label="A channel carries stations; each station owns a point database."
+   font-family="system-ui, sans-serif"
+   fill="none"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="model.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview15"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.6420591"
+     inkscape:cx="384.88262"
+     inkscape:cy="115.40389"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <style
+     id="style1">
+    .box   { stroke: currentColor; stroke-width: 1.5; fill: none; opacity: 0.9; }
+    .accent{ stroke: #26a69a; stroke-width: 2; }
+    .t     { fill: currentColor; }
+    .tt    { fill: currentColor; opacity: 0.65; font-size: 12px; }
+    .lbl   { font-size: 15px; font-weight: 600; }
+    .arrow { stroke: currentColor; stroke-width: 1.5; opacity: 0.6; }
+  </style>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="5"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker16"
+       refX="5"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Rounded arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path16" />
+    </marker>
+    <marker
+       id="a"
+       markerWidth="8"
+       markerHeight="8"
+       refX="6"
+       refY="4"
+       orient="auto">
+      <path
+         d="M0 0 L6 4 L0 8 z"
+         fill="currentColor"
+         opacity="0.6"
+         id="path1" />
+    </marker>
+  </defs>
+  <!-- Channel -->
+  <rect
+     class="box accent"
+     x="20"
+     y="90"
+     width="150"
+     height="60"
+     rx="8"
+     id="rect1"
+     style="fill:#f9f9f9" />
+  <text
+     class="t lbl"
+     x="95"
+     y="116"
+     text-anchor="middle"
+     id="text1">Channel</text>
+  <text
+     class="tt"
+     x="95"
+     y="136"
+     text-anchor="middle"
+     id="text2">serial or TCP link</text>
+  <!-- Stations -->
+  <rect
+     class="box"
+     x="250"
+     y="30"
+     width="170"
+     height="52"
+     rx="8"
+     id="rect2"
+     style="fill:#f9f9f9;stroke:#26a699;stroke-opacity:1" />
+  <text
+     class="t lbl"
+     x="335"
+     y="54"
+     text-anchor="middle"
+     id="text3">Station / RTU</text>
+  <text
+     class="tt"
+     x="335"
+     y="71"
+     text-anchor="middle"
+     id="text4">address 1</text>
+  <rect
+     class="box"
+     x="250"
+     y="158"
+     width="170"
+     height="52"
+     rx="8"
+     id="rect4"
+     style="fill:#f9f9f9;stroke:#26a699;stroke-opacity:1" />
+  <text
+     class="t lbl"
+     x="335"
+     y="182"
+     text-anchor="middle"
+     id="text5">Station / RTU</text>
+  <text
+     class="tt"
+     x="335"
+     y="199"
+     text-anchor="middle"
+     id="text6">address 2</text>
+  <!-- Points -->
+  <rect
+     class="box"
+     x="500"
+     y="20"
+     width="200"
+     height="72"
+     rx="8"
+     id="rect6"
+     style="fill:#f9f9f9;stroke:#26a699;stroke-opacity:1" />
+  <text
+     class="t lbl"
+     x="600"
+     y="42"
+     text-anchor="middle"
+     id="text7">Point database</text>
+  <text
+     class="tt"
+     x="600"
+     y="61"
+     text-anchor="middle"
+     id="text8">indications · measurements</text>
+  <text
+     class="tt"
+     x="600"
+     y="77"
+     text-anchor="middle"
+     id="text9">counters · controls</text>
+  <rect
+     class="box"
+     x="500"
+     y="150"
+     width="200"
+     height="68"
+     rx="8"
+     id="rect9"
+     style="fill:#f9f9f9;stroke:#26a699;stroke-opacity:1" />
+  <text
+     class="t lbl"
+     x="600"
+     y="172"
+     text-anchor="middle"
+     id="text10">Point database</text>
+  <text
+     class="tt"
+     x="600"
+     y="191"
+     text-anchor="middle"
+     id="text11">indications · measurements</text>
+  <text
+     class="tt"
+     x="600"
+     y="207"
+     text-anchor="middle"
+     id="text12">counters · controls</text>
+  <!-- arrows -->
+  <path
+     class="arrow"
+     d="M170 108 L250 60"
+     marker-end="url(#a)"
+     id="path12"
+     style="fill:#0000ff;stroke:#26a699;stroke-opacity:1;marker-end:url(#RoundedArrow)" />
+  <path
+     class="arrow"
+     d="M170 132 L250 182"
+     marker-end="url(#a)"
+     id="path13"
+     style="fill:#0000ff;stroke:#26a699;stroke-opacity:1;marker-end:url(#RoundedArrow)" />
+  <path
+     class="arrow"
+     d="M420 56 L500 56"
+     marker-end="url(#a)"
+     id="path14"
+     style="stroke:#26a699;stroke-opacity:1;marker-end:url(#marker16)" />
+  <path
+     class="arrow"
+     d="M420 184 L500 184"
+     marker-end="url(#a)"
+     id="path15"
+     style="stroke:#26a699;stroke-opacity:1;marker-end:url(#RoundedArrow)" />
+</svg>
