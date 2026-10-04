@@ -1,0 +1,6 @@
+mkdocs-material>=9.5
+mike>=2.1
+
+# Optional: offline PDF export (see README "Optional: PDF export").
+# Needs WeasyPrint's system libraries too (libpango, libcairo, fonts).
+# mkdocs-with-pdf>=0.9.3

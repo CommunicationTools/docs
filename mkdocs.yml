@@ -1,0 +1,118 @@
+site_name: Communication Tools
+site_description: User manual for the Scop SCADA protocol suite — ModbusScop, DNPScop, IEC104Scop, IEC101Scop and SCADAScop.
+site_url: https://communicationtools.github.io/docs/
+repo_url: https://github.com/CommunicationTools/docs
+repo_name: CommunicationTools/docs
+edit_uri: edit/main/docs/
+site_author: Carlos Nardi
+copyright: Created by Carlos Nardi — Communication Tools
+
+theme:
+  name: material
+  language: en
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    # Dark is the suite's default look.
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+  - pymdownx.snippets
+
+plugins:
+  - search
+  # Optional offline PDF of the whole manual. Off by default so the site build
+  # stays fast and dependency-light; enable it by installing mkdocs-with-pdf
+  # (plus WeasyPrint's system libs: libpango, libcairo, fonts) and uncommenting
+  # this block. It is NOT wired into CI — see README "Optional: PDF export".
+  # - with-pdf:
+  #     output_path: pdf/communication-tools-manual.pdf
+  #     cover_title: Communication Tools
+  #     cover_subtitle: Scop SCADA protocol suite — user manual
+  #     enabled_if_env: ENABLE_PDF_EXPORT
+
+extra_css:
+  - assets/css/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/CommunicationTools
+  version:
+    provider: mike
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Install: getting-started/install.md
+      - First run: getting-started/first-run.md
+      - Concepts: getting-started/concepts.md
+  - Using the tools (shared):
+      - Channels window: shared/channels.md
+      - Points and maps: shared/points.md
+      - Communication Monitor: shared/monitor.md
+      - PCAP capture: shared/pcap.md
+      - Workspaces: shared/workspaces.md
+      - Fan-out and duplicate: shared/fanout.md
+      - TLS: shared/tls.md
+      - Themes: shared/themes.md
+      - Updates: shared/updates.md
+      - Charts: shared/charts.md
+      - Simulation: shared/simulation.md
+      - P2P monitoring: shared/p2p.md
+      - Headless & web interface: shared/headless.md
+  - Protocols:
+      - Modbus: protocols/modbus.md
+      - DNP3: protocols/dnp3.md
+      - IEC 60870-5-104: protocols/iec104.md
+      - IEC 60870-5-101: protocols/iec101.md
+      - SCADAScop: protocols/scadascop.md
+  - How-to:
+      - Poll a device: how-to/poll-a-device.md
+      - Send a control: how-to/send-a-control.md
+      - Inspect (one-shot messages): how-to/inspect-messages.md
+      - Simulate faults: how-to/simulate-faults.md
+      - Capture a PCAP: how-to/capture-pcap.md
+      - Create many channels: how-to/multi-channel.md
+  - Reference:
+      - Keyboard shortcuts: reference/shortcuts.md
+      - Workspace keys: reference/workspace-keys.md
+      - DNP3 message catalog: reference/dnp3-messages.md
+      - Troubleshooting: reference/troubleshooting.md
+  - Release notes: release-notes.md
