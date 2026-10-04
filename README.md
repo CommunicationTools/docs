@@ -62,11 +62,5 @@ docs/
   reference/               shortcuts, workspace keys, message catalogs, spec
   assets/screenshots/      PNG screenshots (see SCREENSHOTS.md)
   assets/diagrams/         SVG concept diagrams
-SCREENSHOTS.md             the shot list — which screenshots to capture
 ```
 
-## Adding screenshots
-
-See [`SCREENSHOTS.md`](SCREENSHOTS.md) for the shot list and the capture
-conventions (size, theme, naming). Drop PNGs into `docs/assets/screenshots/`
-using the file names in that list; the pages already reference them.
