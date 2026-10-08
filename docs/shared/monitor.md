@@ -42,3 +42,15 @@ embedded tool in one table, with an extra **Tool** column and filters by tool.
 Mixed-protocol PCAP works too — each flow keeps its protocol's well-known port
 so Wireshark dissects them all correctly. **New monitor** opens further
 instances with their own filters and capture. See [PCAP capture](pcap.md).
+
+This is the only monitor window in SCADAScop: the embedded tools do not show
+their own. Recording is switched per channel:
+
+- **One channel:** right-click it in **Channels → Monitor this channel**. An
+  unchecked channel keeps running, but nothing new is recorded for it (no rows
+  in any monitor window, log file or PCAP).
+- **Every channel at once:** the **Monitor** checkbox in the monitor window.
+  The button beside it (**All channels** / **3 of 5 channels**) lists the
+  channels by protocol with one checkbox each.
+
+The setting is saved with the workspace (`Monitor=` in the channel block).

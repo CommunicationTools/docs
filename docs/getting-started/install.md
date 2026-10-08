@@ -29,9 +29,13 @@ resources\certs\            demo TLS certificates (for the TLS walk-through)
 tools\New-ScopLabCerts.ps1  a PowerShell script to generate lab certificates
 ```
 
-Settings are kept in `.ini` files next to the executable (for example
-`dnpscop_master.ini`), and shared colour overrides in `scop_colors.ini`, so a
-folder you copy to another machine carries its configuration with it.
+Settings are kept in `.ini` files in your user folder,
+`%APPDATA%\CommunicationTools` on Windows and `~/.config/CommunicationTools`
+on Linux (for example `dnpscop_master.ini`, and shared colour overrides in
+`scop_colors.ini`). The program folder is never written, so the tools can run
+from a read-only location. To keep the settings somewhere else, for example
+beside a portable copy, set the `SCOP_USER_DIR` environment variable to that
+folder before starting the tool.
 
 !!! tip "Keep the `resources` and `tools` folders next to the executable"
     The TLS walk-through and the "generate lab certificates" button look for

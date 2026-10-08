@@ -17,6 +17,12 @@ with a single **Communication Monitor** across all protocols.
   several running channels.
 - One self-contained `.ssw` workspace holds every embedded tool's channels.
 - Export group / Import channels here on a group's menu.
+- **Tools → Floating-Point Converter** is an IEEE 754 calculator for FP16, FP32
+  and FP64: type a decimal, paste raw Modbus register contents as hex, or click
+  individual bits, and the other views follow. Pick the byte / word order
+  (ABCD, CDAB, BADC, DCBA and the one- and four-register equivalents) to read
+  registers the way the device sends them. It shows the exact value stored,
+  the conversion error and the sign / exponent / mantissa breakdown.
 
 ## To document
 
