@@ -21,6 +21,23 @@ Click a row to see the **layered decode** in the detail pane: the link layer,
 the application header, and every object expanded with its value, quality and
 time tag — enough to read the wire without any other tool.
 
+## Long DNP3 messages
+
+A DNP3 application message that does not fit one link frame is sent in several
+packets (transport segments). Only the first packet carries the application
+header, so only that row can name the function:
+
+| Decode text | Meaning |
+|---|---|
+| `RESPONSE dest=… src=…` | The whole message fits one packet. |
+| `RESPONSE (first seg, more follow) …` | First packet of a longer message. |
+| `(fragment cont. seg N, x bytes) …` | A middle packet — object data only. |
+| `(fragment final seg N, x bytes) …` | The last packet of the message. |
+
+`N` is the transport sequence number, which counts up by one per packet. In the
+detail pane a continuation packet shows the link and transport layers and
+*Application: continuation segment*; its objects are not decoded on their own.
+
 ## Filters and controls
 
 - Filter by **direction**, **channel**, **RTU** and **free text**.

@@ -13,6 +13,9 @@
 
 - Check the **framing** (Modbus RTU vs TCP/MBAP), the **address size** (IEC), and
   the link-address size (IEC 101).
+- DNP3 rows reading *fragment cont. seg N* are the middle packets of a long
+  message, not errors — see
+  [Long DNP3 messages](../shared/monitor.md#long-dnp3-messages).
 - A row tagged `[fault]` is a fault you injected on the Slave — clear it in
   **Communication Tests**.
 

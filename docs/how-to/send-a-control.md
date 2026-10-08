@@ -16,6 +16,11 @@ Protocol specifics:
 
 - **DNP3** — CROB (g12) for binary outputs, Analog Output (g41) for analog;
   control status codes are shown on the result.
-- **IEC 101 / 104** — single / double / regulating commands and setpoints, with
-  select/execute where configured.
+- **IEC 101 / 104** — single / double / regulating commands and setpoints. The
+  command mode is **Direct execute** or **Select then execute**. With select
+  then execute, the master sends the SELECT and waits for its positive
+  confirmation (ACTCON) before it sends the EXECUTE. If the device denies the
+  selection, or no confirmation arrives in time, the execute is cancelled; the
+  status log says which ("selection confirmed", "selection denied" or
+  "selection timed out").
 - **Modbus** — write single / multiple coils or registers.

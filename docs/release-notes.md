@@ -11,13 +11,34 @@ under [github.com/CommunicationTools](https://github.com/CommunicationTools). Us
 |---|---|
 | ModbusScop Master | 2.6 |
 | ModbusScop Slave | 2.6 |
-| DNPScop Master | 1.6 |
-| DNPScop Slave | 2.5 |
-| IEC104Scop Master / Slave | 1.6 / 1.6 |
-| IEC101Scop Master / Slave | 1.6 / 1.7 |
-| SCADAScop | 1.8 |
+| DNPScop Master | 1.7 |
+| DNPScop Slave | 2.6 |
+| IEC104Scop Master / Slave | 1.7 / 1.6 |
+| IEC101Scop Master / Slave | 1.7 / 1.8 |
+| SCADAScop | 1.8.1 |
 
 ## Highlights of this release
+
+- **DNPScop Master / Slave, SCADAScop** — the Communication Monitor's **Decode**
+  column no longer shows a wrong message type (for example
+  `DISABLE_UNSOLICITED`) on long application messages sent in several packets.
+  The first packet shows its function with *(first seg, more follow)*; the
+  following ones are shown as *fragment cont. seg N* / *fragment final seg N*.
+  See [Communication Monitor](shared/monitor.md#long-dnp3-messages).
+- **IEC101Scop / IEC104Scop Master** — in **Select then execute** command mode
+  the master now waits for the positive confirmation (ACTCON) of the SELECT
+  before it sends the EXECUTE. A denied selection is not executed, and a
+  timeout cancels the pending execute. See
+  [Send a control](how-to/send-a-control.md).
+- **IEC101Scop Slave** — with **Single-character ACK (E5)** enabled, a class
+  poll with nothing to report is answered with the single character `0xE5`
+  instead of a fixed-length "no data" frame, and the *NACK class 2*
+  communication test answers with `0xA2`.
+- **SCADAScop** — new **Tools → Floating-Point Converter**, an IEEE 754
+  calculator for FP16 / FP32 / FP64 with Modbus register byte orders. See
+  [SCADAScop](protocols/scadascop.md).
+
+## Previous release
 
 - **DNPScop Master** — a new **Inspect** tab in the Messages window sends one
   message at a time (link, class read, group read, time, assign class) with its
