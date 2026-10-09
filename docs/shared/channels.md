@@ -54,6 +54,17 @@ The **Settings…** dialog carries the options shared by every tool:
   `ReconnectMax`).
 - **RS-485 RTS** — toggle, inverted toggle or always-on RTS for 2-wire lines
   (`RtsMode`, `RtsDelay`).
+- **Local interface** (master channels, TCP / UDP) — the network adapter of
+  the PC the connection leaves from, chosen by its IP address
+  (`LocalInterface`). Leave it empty and the operating system chooses by its
+  routing table. Set it on a PC with several adapters in the same network,
+  when the traffic goes out through the wrong one: pick the address from the
+  drop-down (it lists every adapter with its name) or type it. The line below
+  the field names the adapter, or warns that no adapter of the PC has that
+  address. If the address is missing when the channel starts (cable moved,
+  DHCP gave another address), the connection fails with a line in Status
+  Messages; it never falls back to another adapter. The P2P Monitor has the
+  same field for its RTU side.
 - **TLS** — see [TLS](tls.md).
 - **Timeouts and retries** — protocol-specific, documented in each protocol
   chapter.

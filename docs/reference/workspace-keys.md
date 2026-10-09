@@ -33,7 +33,9 @@ Key points:
   channel, with `|M` / `|S` marking whose tail follows — so an RTU can be moved
   between a master and a slave.
 - Connection keys shared by every tool: `AutoReconnect`, `ReconnectMin`,
-  `ReconnectMax`, `RtsMode`, `RtsDelay`, plus the TLS keys.
+  `ReconnectMax`, `RtsMode`, `RtsDelay`, plus the TLS keys. Master channels
+  on TCP / UDP also write `LocalInterface` (the IP address of the adapter to
+  connect from) when one is set; the P2P Monitor writes `RtuLocalInterface`.
 
 !!! note "Draft"
     A full per-tool key table will be added here. For now the file itself is the
