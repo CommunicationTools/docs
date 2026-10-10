@@ -16,6 +16,9 @@ get the whole suite in one shell.
 - A serial port / USB-serial adapter for RTU links, or a network connection for
   TCP links. No driver is installed by the tools themselves.
 
+The tools also run on Linux desktops: see
+**[Running on Linux](linux.md)** for what differs there.
+
 ## Folder layout
 
 Unzip anywhere (for example `C:\Tools\ScadaScop\`). A release archive contains:
