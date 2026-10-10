@@ -9,15 +9,53 @@ under [github.com/CommunicationTools](https://github.com/CommunicationTools). Us
 
 | Tool | Version |
 |---|---|
-| ModbusScop Master | 2.6 |
-| ModbusScop Slave | 2.6 |
-| DNPScop Master | 1.7 |
-| DNPScop Slave | 2.6 |
-| IEC104Scop Master / Slave | 1.7 / 1.6 |
-| IEC101Scop Master / Slave | 1.7 / 1.8 |
-| SCADAScop | 1.8.1 |
+| ModbusScop Master | 2.7 |
+| ModbusScop Slave | 2.7 |
+| DNPScop Master | 1.8 |
+| DNPScop Slave | 2.7 |
+| IEC104Scop Master / Slave | 1.8 / 1.7 |
+| IEC101Scop Master / Slave | 1.8 / 1.9 |
+| SCADAScop | 1.9 |
+
+Each tool is published in three builds — **Windows 10 / 11** (`win64`),
+**Windows 7 SP1** (`win7`) and **Linux x86_64** (`linux-x86_64`); see
+[Install](getting-started/install.md) and [Running on Linux](getting-started/linux.md).
+
+!!! note "The standalone tools are now frozen"
+    This is the last feature release of the standalone tools. New features are
+    developed in **SCADAScop**, which contains every tool; the standalone tools
+    remain available and receive fixes.
 
 ## Highlights of this release
+
+- **All tools** — settings, window layout, recent-files lists and the shared
+  colours file now live in your user folder (`%APPDATA%\CommunicationTools`,
+  Linux `~/.config/CommunicationTools`) instead of next to the executable, so a
+  tool can run from a read-only folder. Existing files beside the executable are
+  copied over on first start; `SCOP_USER_DIR` picks another folder. See
+  [Install](getting-started/install.md).
+- **All master tools, SCADAScop, P2P Monitor** — a **Local interface** field on
+  TCP / UDP channels: the IP address of the network adapter the connection must
+  leave from, for PCs with several adapters in the same network (empty = the
+  system chooses, as before). See [Channels](shared/channels.md).
+- **All tools** — released for **Windows 7** and **Linux** besides Windows 10 /
+  11. **Help → About** shows which build you are running, and
+  **Check for updates** only offers releases that have a file for your build.
+  See [Updates](shared/updates.md) and [Running on Linux](getting-started/linux.md).
+- **All tools** — the refresh-rate cap now limits drawing only: polling,
+  simulation, logging and the web interface keep their rhythm whatever the cap,
+  and an unchanged picture is not redrawn — CPU (software) rendering is much
+  lighter.
+- **ModbusScop Slave** — **RTU Settings → On write** chooses where an accepted
+  FC06 / FC16 write is stored: the holding map (default), the input map (read it
+  back with FC04) or nowhere.
+- **IEC104Scop / IEC101Scop Slave** — a normalized / scaled measurand outside
+  its representable range goes out with the **OV** quality bit set on the wire
+  only; the point itself is unchanged.
+- **SCADAScop** — switching the Channels panel between **Free** and **Docked** no
+  longer flickers.
+
+## Previous release
 
 - **DNPScop Master / Slave, SCADAScop** — the Communication Monitor's **Decode**
   column no longer shows a wrong message type (for example
@@ -37,27 +75,5 @@ under [github.com/CommunicationTools](https://github.com/CommunicationTools). Us
 - **SCADAScop** — new **Tools → Floating-Point Converter**, an IEEE 754
   calculator for FP16 / FP32 / FP64 with Modbus register byte orders. See
   [SCADAScop](protocols/scadascop.md).
-
-## Previous release
-
-- **DNPScop Master** — a new **Inspect** tab in the Messages window sends one
-  message at a time (link, class read, group read, time, assign class) with its
-  parameters chosen inline; the scheduled list is now the **Communication Flow**
-  tab. A link-layer **NACK / NOT_FUNCTIONING** is now bounded — reset and retried
-  up to the configured count, each after the ACK timeout, then dropped — instead
-  of retrying forever.
-- **DNPScop Slave** — the fault-injection panel moved into its own
-  **Communication Tests** window (right-click an RTU → *Communication Tests…*).
-- **IEC104Scop / IEC101Scop Slave** — a **Communication Tests** tab injects
-  application-, link- (and, for IEC 104, APCI-) layer faults; a negative
-  confirmation now **rejects** the request rather than only flipping the P/N bit;
-  **Send End of Initialization** added to the RTU menu.
-- **ModbusScop Master / Slave** — resizable point / register-map columns with a
-  right-click header menu (hide Name, show the address in the value cell, base-1
-  register numbers).
-- **SCADAScop** — open several **Communication Monitor** windows; closing an
-  extra one removes it (the first stays and just hides).
-- **All tools** — **Help → About** now links to this online manual, and the
-  Toolbar and Status Bar show their names in the Ctrl+Tab window switcher.
 
 The full change history for each release is on its GitHub release page.

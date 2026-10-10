@@ -1,7 +1,14 @@
 # Install
 
-The tools are self-contained Windows executables — there is no installer and
-nothing is written to the registry.
+The tools are self-contained executables — there is no installer and nothing
+is written to the registry. Each release comes in three builds; pick the file
+for your system:
+
+| File | For |
+|---|---|
+| `<Tool>-<version>-win64.zip` | Windows 10 / 11, 64-bit — the normal build |
+| `<Tool>-<version>-win7.zip` | Windows 7 SP1 (also runs on later Windows) |
+| `<Tool>-<version>-linux-x86_64.tar.gz` | Linux desktops, 64-bit — see [Running on Linux](linux.md) |
 
 ## Download
 
@@ -12,7 +19,8 @@ get the whole suite in one shell.
 
 ## Requirements
 
-- Windows 10 or later, 64-bit.
+- Windows 10 or later, 64-bit (`win64`), or Windows 7 SP1 with a GPU driver
+  that provides OpenGL 3 — or CPU rendering — for the `win7` build.
 - A serial port / USB-serial adapter for RTU links, or a network connection for
   TCP links. No driver is installed by the tools themselves.
 
