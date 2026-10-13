@@ -76,6 +76,22 @@ Replies appear on the Communication Flow events and in the
 
 See the walk-through in [Inspect (one-shot messages)](../how-to/inspect-messages.md).
 
+### Live Data Map and the RTU's points
+
+**View → Live Data Map** lists every point the outstation has reported (static
+and event) for the selected channel / RTU, with value, quality flags and
+timestamp. It is the received image; the RTU's own **Points** window
+(right-click an RTU → **Points…**) is the configured map — the named points
+you poll, chart and control.
+
+**Import to RTU** on the Live Data Map copies the received points into that
+map in one click: every (type, index) listed that the map does not have yet is
+added, named by type and index (`BI 100`, `AI 3`, `BO 1`…); addresses already
+in the map are skipped, so names and scaling you entered are kept. The filter
+row limits what is imported — filter to `index: 1-10` and only those are added.
+A confirmation shows how many points will be added and how many are skipped.
+The button is greyed when there is nothing new to import.
+
 ### Sending controls
 
 From the point map, operate a control point (CROB / analog output) with
