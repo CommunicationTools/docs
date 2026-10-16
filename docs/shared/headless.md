@@ -46,8 +46,12 @@ SCADAScop. While it runs the status bar shows *Web: N viewer(s)*.
 
 The page shows the groups, channels and RTUs with their state and counters, a
 live Status Messages feed, and — when the workspace has a slave tool — a
-**simulation** box (state, speed and Start / Stop). In monitoring-only mode the
-controls are hidden and nothing can be changed.
+**simulation** box (state, speed and Start / Stop). A slave RTU with an
+[RTU script](scripting.md) shows the script's state with Start / Stop / Reload.
+In monitoring-only mode the controls are hidden and nothing can be changed.
+
+For scripted tests and terminals, [scopctl](scopctl.md) drives the same
+interface from the command line.
 
 ## Security
 

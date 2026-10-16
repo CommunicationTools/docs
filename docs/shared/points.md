@@ -23,6 +23,24 @@ columns depend on the protocol; the protocol chapters describe them.
   box, <kbd>Ctrl</kbd>+<kbd>A</kbd>) to delete or bulk-edit; <kbd>Ctrl</kbd>+<kbd>C</kbd>
   copies the selection as text.
 
+## Tag column (SCADAScop)
+
+In SCADAScop a point can carry a **tag** — a name that [RTU scripts](scripting.md)
+and [HMI displays](displays.md) use instead of its group and index. Tick the box
+in the point's **Tag** column and type the name: letters, digits and `_`, not
+starting with a digit, unique inside the RTU (a red field is invalid or a
+duplicate). Untagged points are not visible to scripts and displays.
+
+| Where | The Tag column |
+|---|---|
+| Slave Points windows (DNP3, IEC 104 / 101) | after Name |
+| Modbus Slave grids and PLC memory | **Tag column** checkbox next to Display options |
+| DNP3 / IEC Master map tables | after Name |
+| Modbus Master poll window | **Tag column** checkbox next to Display options (also View options) |
+
+Tags are saved with the point in the workspace; the DNP3 and IEC tables also
+carry them in their CSV export / import (`TagOn`, `Tag` columns).
+
 ## Column options (Modbus)
 
 In the Modbus tools the register/coil grids are resizable — drag a column

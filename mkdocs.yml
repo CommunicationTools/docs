@@ -98,6 +98,10 @@ nav:
       - Simulation: shared/simulation.md
       - P2P monitoring: shared/p2p.md
       - Headless & web interface: shared/headless.md
+      - scopctl (terminal client): shared/scopctl.md
+  - SCADAScop features:
+      - RTU scripting: shared/scripting.md
+      - HMI displays: shared/displays.md
   - Protocols:
       - Modbus: protocols/modbus.md
       - DNP3: protocols/dnp3.md
@@ -114,6 +118,7 @@ nav:
   - Reference:
       - Keyboard shortcuts: reference/shortcuts.md
       - Workspace keys: reference/workspace-keys.md
+      - Script API: reference/script-api.md
       - DNP3 message catalog: reference/dnp3-messages.md
       - Troubleshooting: reference/troubleshooting.md
   - Release notes: release-notes.md

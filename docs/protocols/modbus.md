@@ -24,13 +24,22 @@ reset widths); see [Points and maps](../shared/points.md).
 
 ## Master
 
-- Poll windows let you read/write a function code over an address range, with the
-  data grid showing values live and grouping 32/64-bit values.
+- Each RTU opens in **one window with a tab per poll map** (SCADAScop 2.0); each
+  map reads / writes a function code over an address range, with the data grid
+  showing values live and grouping 32/64-bit values.
+- In SCADAScop the **Tag column** checkbox (next to Display options) names cells
+  for [HMI displays](../shared/displays.md); a tagged coil map (FC05 / FC15) or
+  register map (FC06 / FC16) is commandable from a display.
 - Inspect / device-scan / register-scan tools help probe an unknown device.
 
 ## Slave
 
 - Serve values from the device tables or the PLC map; edit or simulate them.
+- **RTU Settings › On write** chooses where an accepted FC06 / FC16 write lands
+  (holding map, input map, or nowhere) and **On coil write** the same for FC05 /
+  FC15 (coil map, discrete-input map, or nowhere).
+- The PLC memory window has a **Words** / **Bits** view; tag single bits for a
+  [script](../shared/scripting.md) from the Bits view.
 - **Gateway** mode re-frames MBAP ⇄ RTU with unit remapping and the right Modbus
   exceptions (0x0A / 0x0B) when the device side is down.
 

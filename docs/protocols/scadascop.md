@@ -8,6 +8,13 @@ with a single **Communication Monitor** across all protocols.
 
 ## Highlights
 
+- **[RTU scripting](../shared/scripting.md)** (2.0) — every slave RTU can run a
+  Lua script that accepts, refuses or delays commands and drives the simulation.
+- **[HMI displays](../shared/displays.md)** (2.0) — **Tools › Displays**: operator
+  screens over any master or slave point, with select-before-operate commands.
+- **[scopctl](../shared/scopctl.md)** — a terminal client for status, start /
+  stop, simulation, scripts and automated tests, across several instances.
+
 - One window hosting all the protocol tools; channels are organised into groups.
 - **View → Communication Monitor** shows every embedded tool's traffic in one
   table (with a Tool column and per-tool filters), and a mixed-protocol PCAP that

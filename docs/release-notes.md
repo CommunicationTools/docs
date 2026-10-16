@@ -15,7 +15,8 @@ under [github.com/CommunicationTools](https://github.com/CommunicationTools). Us
 | DNPScop Slave | 2.7 |
 | IEC104Scop Master / Slave | 1.8 / 1.7 |
 | IEC101Scop Master / Slave | 1.8 / 1.9 |
-| SCADAScop | 1.9 |
+| SCADAScop | 2.0 |
+| scopctl | 0.4 |
 
 Each tool is published in three builds — **Windows 10 / 11** (`win64`),
 **Windows 7 SP1** (`win7`) and **Linux x86_64** (`linux-x86_64`); see
@@ -26,7 +27,36 @@ Each tool is published in three builds — **Windows 10 / 11** (`win64`),
     developed in **SCADAScop**, which contains every tool; the standalone tools
     remain available and receive fixes.
 
-## Highlights of this release
+## SCADAScop 2.0
+
+New features are developed in SCADAScop only; this is the first release built on
+that rule, and its two headline features earn it a major version.
+
+- **RTU scripting** — every slave RTU (DNP3, IEC 104, IEC 101, Modbus) can run a
+  Lua script: tick the **Tag** column of the points it may use, then decide
+  commands and setpoints (accept, reject with the protocol's own refusal, or
+  answer after a delay), react to value changes and timers, and simulate
+  breakers, bays, tap changers and load profiles with the built-in library.
+  Right-click an RTU › **Script…**. Scripts can also be started, stopped and
+  reloaded from the web interface and `scopctl`. See
+  [RTU scripting](shared/scripting.md) and the [Script API](reference/script-api.md).
+- **HMI displays** — **Tools › Displays**: operator screens with values, LEDs,
+  bars, gauges, breakers, power flows, images (PNG / SVG), command buttons and
+  setpoint fields, bound to any master or slave point by tag. Commands follow
+  select-before-operate. A display can belong to the whole workspace or to one
+  RTU; export it once and import it for every RTU of the same type, and a reload
+  of the file updates them all. See [HMI displays](shared/displays.md).
+- **scopctl 0.4** — the terminal client gains `script status | start | stop |
+  reload`. See [scopctl](shared/scopctl.md).
+- **Modbus Master** — one window per RTU with a tab per poll map. **Modbus
+  Slave** — *On coil write* chooses where an accepted FC05 / FC15 write is
+  stored; the PLC memory window has a Words / Bits view.
+- Also in this release: Modbus value lists (enumerations and bit names), Modbus
+  Slave command maps (FC05 / 06 / 15 / 16 blocks), DNP3 Master *Import to RTU*
+  from the Live Data Map, and the IEC 104 / 101 Slave **Communication Tests**
+  window.
+
+## Final standalone round (SCADAScop 1.9)
 
 - **All tools** — settings, window layout, recent-files lists and the shared
   colours file now live in your user folder (`%APPDATA%\CommunicationTools`,
@@ -55,7 +85,7 @@ Each tool is published in three builds — **Windows 10 / 11** (`win64`),
 - **SCADAScop** — switching the Channels panel between **Free** and **Docked** no
   longer flickers.
 
-## Previous release
+## Earlier release
 
 - **DNPScop Master / Slave, SCADAScop** — the Communication Monitor's **Decode**
   column no longer shows a wrong message type (for example

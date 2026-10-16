@@ -19,7 +19,8 @@ how channel *i* differs from the first:
 
 The RTU / link / unit / common address steps with the channel unless **Same … on
 every channel** is ticked. Names become `<name> 1`, `<name> 2`, … (or
-`<name> <ip>`). The dialog previews the resulting range and reduces the count if
+`<name> <ip>`) — unless the name already ends in a number, which then counts on
+(see [Names of copies](#names-of-copies)). The dialog previews the resulting range and reduces the count if
 it would run past the mask, the port range or the id range.
 
 ## Duplicate a channel
@@ -34,6 +35,23 @@ start stopped.
 Right-click an RTU → **Duplicate RTU…** copies one station inside its channel —
 all points and their settings — under a new address (**Copies** + **Next id**;
 ids already used on the channel are refused).
+
+## Names of copies
+
+A name that ends in a number continues its sequence, keeping the zero padding
+and without any "copy" word — for channels (New Channel with a count,
+Duplicate…) and RTUs (Duplicate RTU…, the RTUs window):
+
+| Source | Copies |
+|---|---|
+| `Channel 1` | `Channel 2`, `Channel 3`, … |
+| `Channel_0001` | `Channel_0002`, `Channel_0003`, … |
+| `PV_INV_01`, with `PV_INV_02` already there | `PV_INV_03`, `PV_INV_04`, … |
+| `Feeder` (no number) | `Feeder copy`, `Feeder copy 2`, … |
+
+Duplicating continues after the highest number already used with the same
+prefix in the tool's channels (or the channel's RTUs), so names never repeat;
+the padding grows when the number needs more digits (`_99` → `_100`).
 
 !!! note "SCADAScop"
     In SCADAScop the copies land in the source channel's group, and a P2P batch

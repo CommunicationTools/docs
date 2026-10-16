@@ -34,6 +34,27 @@ Right-click a channel for its context menu:
 - **Delete channel**
 - **Communication Monitor (this channel)** — open the monitor filtered to it.
 
+## Selecting several channels (SCADAScop)
+
+In SCADAScop's Channels tree, **Ctrl+click** adds or removes a channel from the
+selection, **Shift+click** selects a range, **Ctrl+A** selects every channel and
+**Esc** clears the selection. Right-click a selected channel for the selection's
+menu — **Start / Stop selected**, **RTUs…**, **Move to group**, **Delete
+selected…** — or press **Delete**: one confirmation for all of them.
+
+## The RTUs window (SCADAScop)
+
+Right-click a channel › **RTUs…** (or a selection of channels) lists every RTU of
+those channels in one table — channel, name, address, state, script — with a
+filter and **All / None / Invert**. Tick rows (click a name; Shift+click a range)
+and:
+
+- **Enable** / **Disable** them;
+- **Delete…** them, with one confirmation;
+- **Duplicate** the one ticked RTU **×N**, from a given address or right after
+  the channel's highest one — the quick way to replace many RTUs with copies of
+  an updated one: tick the old ones, Delete, tick the new one, Duplicate.
+
 ## A station (RTU) row
 
 Under each channel sit its stations. Right-click one for:
