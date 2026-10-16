@@ -46,6 +46,12 @@ that rule, and its two headline features earn it a major version.
   select-before-operate. A display can belong to the whole workspace or to one
   RTU; export it once and import it for every RTU of the same type, and a reload
   of the file updates them all. See [HMI displays](shared/displays.md).
+- **Windows and monitors** — drag the Communication Monitor, charts, displays
+  or point maps out of the main window onto a second monitor and dock them
+  together there; **View › Desktops** opens empty windows of their own (with a
+  normal title bar: maximize, snap) to dock into. Dialogs open over the window
+  you are working in, and text follows each monitor's scaling. See
+  [Windows and monitors](shared/windows.md).
 - **scopctl 0.4** — the terminal client gains `script status | start | stop |
   reload`. See [scopctl](shared/scopctl.md).
 - **Modbus Master** — one window per RTU with a tab per poll map. **Modbus

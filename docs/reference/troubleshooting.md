@@ -30,6 +30,14 @@
 - With **auto-reconnect** on, the tool reopens the link by itself with a back-off;
   watch the status log. Check the port still exists and nothing else holds it.
 
+## A window is missing or off-screen
+
+SCADAScop windows can live outside the main window (see
+[Windows and monitors](../shared/windows.md)). **View → Bring all windows back**
+moves every one of them back into the main window. A window whose monitor is no
+longer connected comes back on its own at the next start. To keep every window
+inside the main window, turn off **View → Windows outside the main window**.
+
 ## Capturing for a bug report
 
 A short **[PCAP](../shared/pcap.md)** that reproduces the problem, plus the

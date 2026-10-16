@@ -12,6 +12,9 @@ with a single **Communication Monitor** across all protocols.
   Lua script that accepts, refuses or delays commands and drives the simulation.
 - **[HMI displays](../shared/displays.md)** (2.0) — **Tools › Displays**: operator
   screens over any master or slave point, with select-before-operate commands.
+- **[Windows and monitors](../shared/windows.md)** (2.0) — drag any window out of
+  the main window onto a second monitor, dock windows together there, or open a
+  **Desktop** (View › Desktops) to dock into.
 - **[scopctl](../shared/scopctl.md)** — a terminal client for status, start /
   stop, simulation, scripts and automated tests, across several instances.
 
