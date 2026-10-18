@@ -52,6 +52,16 @@ that rule, and its two headline features earn it a major version.
   normal title bar: maximize, snap) to dock into. Dialogs open over the window
   you are working in, and text follows each monitor's scaling. See
   [Windows and monitors](shared/windows.md).
+- **Watch window** — **Tools › Watch**: read-only lists of points of any
+  channel to keep an eye on during a test — value, decoded quality, time of the
+  last update, age and number of changes, for every master and slave point.
+  Add points from a picker, **Add to watch** in the masters' maps and the
+  slaves' points, or by drag and drop. See [Watch window](shared/watch.md).
+- **New startup animations** — the splash screen now rotates through ten
+  animated styles, six of them new substation scenes: a single-line diagram
+  energising bay by bay, three-phase waveforms with a phasor star, an RTU point
+  scan, a GOOSE mesh, a sequence-of-events log with time sync and a protocol
+  frame decoder. **Help › About** previews them all.
 - **scopctl 0.4** — the terminal client gains `script status | start | stop |
   reload`. See [scopctl](shared/scopctl.md).
 - **Modbus Master** — one window per RTU with a tab per poll map. **Modbus

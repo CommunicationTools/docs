@@ -79,6 +79,19 @@ keys (`Shape`, `Radius`, `Dir` for shapes; `VisTag`, `VisOp`, `VisValue` for
 visibility). A `.ssd` file (Export, DisplayLab) holds the same blocks. `ShowDisplays=1`
 in `[Workspace]` reopens the Displays window.
 
+## Watch lists
+
+One `[Watch.N]` block per list of the Watch window (Tools › Watch), after the
+displays; nothing is written while there is no list.
+
+| `[Watch.N]` key | |
+|---|---|
+| `Name` | the tab's name |
+| `Active=1` | the tab shown when saved (only with several lists) |
+| `Point=<key>[\|label]` | one line per watched point, in order: the point key (`dnp:4/1/AI/0`, `iec104:2/ca1/MV/4001`, `mb:2/rtu1/HR/0`, a slave's `dnps:` / `iec104s:` / `mbs:` ...) and the optional label |
+
+`ShowWatch=1` in `[Workspace]` reopens the window.
+
 !!! note "Draft"
     A full per-tool key table will be added here. For now the file itself is the
     best reference — open a saved workspace in a text editor to see every key in

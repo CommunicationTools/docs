@@ -102,6 +102,7 @@ nav:
   - SCADAScop features:
       - RTU scripting: shared/scripting.md
       - HMI displays: shared/displays.md
+      - Watch window: shared/watch.md
       - Windows and monitors: shared/windows.md
   - Protocols:
       - Modbus: protocols/modbus.md
