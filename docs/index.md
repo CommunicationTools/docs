@@ -25,6 +25,12 @@ Created and developed by **Carlos Nardi**.
   (deny a poll, corrupt a checksum, send a negative confirmation, ...).
 - **Build large test sets** fast: create up to 64 channels at once, duplicate
   channels and RTUs, and save everything in one workspace file.
+- **Make a simulated RTU behave like the real one** with a
+  [Lua script](shared/scripting.md) — breakers with travel time, refused or
+  late commands, tap changers, load curves — and watch it on an
+  [HMI display](shared/displays.md) you draw yourself (SCADAScop).
+- **Automate tests** from a terminal or CI job with [scopctl](shared/scopctl.md):
+  start channels, wait for states, assert counters, drive several instances.
 
 ## How this manual is organised
 
@@ -32,6 +38,9 @@ Created and developed by **Carlos Nardi**.
   the handful of concepts (channel, RTU/station, point) that every tool shares.
 - **[Using the tools](shared/channels.md)** — the windows and features common to
   every tool: Channels, Points, the Monitor, PCAP, workspaces, TLS, themes.
+- **[SCADAScop features](shared/scripting.md)** — scripting (with the
+  [library](shared/scripting-library.md) and [examples](shared/scripting-examples.md)),
+  displays, the Watch window, windows on several monitors.
 - **[Protocols](protocols/dnp3.md)** — one chapter per protocol, with its
   Master- and Slave-specific windows and worked examples.
 - **[How-to](how-to/poll-a-device.md)** — short, task-focused walk-throughs.

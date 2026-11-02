@@ -2,7 +2,9 @@
 
 The functions and values a [RTU script](../shared/scripting.md) can use. Lua
 5.4's `string`, `table`, `math` and `utf8` libraries are available; `io`, `os`,
-`package`, `require` and `load` are not.
+`package`, `require` and `load` are not. The library objects are described with
+examples in [Script library](../shared/scripting-library.md), and
+[Script examples](../shared/scripting-examples.md) shows the API in use.
 
 ## Values
 
@@ -33,7 +35,7 @@ The functions and values a [RTU script](../shared/scripting.md) can use. Lua
 | `on_command(tag, fn(cmd))` | a binary control addresses the tag's point |
 | `on_setpoint(tag, fn(sp))` | a setpoint / analog output addresses it |
 | `on_change(tag, fn(value, old))` | the point's value changed (any writer) |
-| `on_event(name, fn(info))` | `start`, `stop`, `master_online`, `master_offline`, `time_sync`, `counter_freeze`, `restart`, `sim_on`, `sim_off` |
+| `on_event(name, fn(info))` | `start`, `stop`, `master_online` / `master_offline` (`info.peer`), `sim_on` / `sim_off` (`info.speed`), `time_sync` (DNP3 `utc_ms`, `lan`, `master`; IEC `utc_ms`, `applied`), `restart` (DNP3 `cold`, `master`; IEC `qrp`, `dropped`), `counter_freeze` (DNP3 `due_ms`, `interval_ms`, `master`) |
 | `every_ms(ms, fn)` | periodically (first call after `ms`); returns a timer id |
 | `after_ms(ms, fn)` | once; returns a timer id |
 | `cancel(id)` | stops a timer |
@@ -76,8 +78,9 @@ return REJECT(code), 300      -- a late refusal (0 or less = no delay)
 |---|---|
 | `now_ms()` | station time, ms since 1970 (follows time synchronisation) |
 | `mono_ms()` | monotonic ms, for intervals |
-| `print(...)`, `log(...)` | the Script console and Status Messages |
-| `random()`, `random(a, b)` | random numbers |
+| `print(...)` | the Script console |
+| `log(text)`, `log(level, text)` | the console **and** Status Messages (prefixed `Script:`); `level` is `"info"`, `"warn"` or `"error"` |
+| `random()`, `random(a, b)` | `math.random`: a float in [0, 1), or an integer in `a..b`; seeded from the station clock at start |
 | `bit(v, n)`, `bits(v, a, b)`, `with_bit(v, n, on)` | bit helpers for register words |
 | `word_lo(v)`, `word_hi(v)`, `to_int16(v)`, `to_int32(v)` | word helpers |
 | `help()` | prints this API in the console |

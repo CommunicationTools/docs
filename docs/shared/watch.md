@@ -5,6 +5,8 @@ you test: their live value, quality, when they were last updated and how often
 they changed. It is read only — nothing in the window writes a value or sends a
 command, so it is safe to leave open beside a test run.
 
+![A watch list over the SCADA master's points; rows flash as values change](../assets/screenshots/scadascop-watch-window.png)
+
 ## Adding points
 
 Points of any protocol and role can sit in the same list:

@@ -39,7 +39,10 @@ window would show are skipped, so a long-running headless process stays lean.
 
 The same web UI is available from the GUI under **Tools → Web Interface…**, where
 you can Start / Stop it, copy the link, open it in a browser and see the viewer
-count. You choose who may reach it — **this computer** (127.0.0.1), **any
+count.
+
+![Tools → Web Interface with the server running on 127.0.0.1:8080](../assets/screenshots/scadascop-web-interface-dialog.png)
+ You choose who may reach it — **this computer** (127.0.0.1), **any
 computer on the network** (0.0.0.0) or **one address** — set the **port** and an
 optional **access token**, and whether it is **monitoring-only** and starts with
 SCADAScop. While it runs the status bar shows *Web: N viewer(s)*.

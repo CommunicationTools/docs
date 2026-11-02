@@ -5,6 +5,8 @@ Communication Monitor, a chart, an HMI display or a point map onto a second
 monitor, dock several windows together there, or open a **Desktop** — an empty
 window of its own to dock into.
 
+![The View menu: Windows outside the main window, Bring all windows back and the Desktops submenu](../assets/screenshots/scadascop-view-desktops-menu.png)
+
 ## Windows outside the main window
 
 **View → Windows outside the main window** is on by default.
@@ -48,6 +50,8 @@ and it never merges back into the main window.
 - Drag a window's title bar or tab onto the desktop to dock it there; dock more
   windows beside it or as tabs.
 - **View → Desktops → Desktop N** brings a desktop to the front.
+
+![Desktop 2 with the feeder display docked into it; its title bar is a normal Windows one](../assets/screenshots/scadascop-desktop-window.png)
 - Closing a desktop (its close button, or **View → Desktops → Close all
   desktops**) moves the windows docked on it back into the main window.
 

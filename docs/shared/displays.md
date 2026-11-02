@@ -9,9 +9,19 @@ setpoint fields. A display can show and command points of **master** RTUs (a rea
 HMI over the devices you poll) and of **slave** RTUs (a front panel for the
 simulated device). Displays are saved in the workspace.
 
+![A feeder-bay display in run mode: single-line diagram, breaker, protection LED, readouts, gauge, bars, tap setpoint and a command button](../assets/screenshots/scadascop-display-run.png)
+
+!!! tip "Try it first"
+    `docs/sample-workspaces/feeder-demo.ssw` contains the display above, bound
+    to the SCADA master's points, together with the outstation it polls and the
+    [script](scripting-examples.md#a-complete-feeder-bay) that animates it.
+    Open it and press **Start all**; the display opens with the workspace.
+
 ## The Displays window
 
 **Tools › Displays** lists the workspace's displays:
+
+![The Displays window](../assets/screenshots/scadascop-displays-window.png)
 
 | Column | |
 |---|---|
@@ -46,6 +56,8 @@ to every tag field opens the tag browser: every tagged point with its channel,
 RTU, kind, units and name, filtered by channel, RTU and text — double-click to
 bind.
 
+![The tag browser, opened from a Browse button](../assets/screenshots/scadascop-display-tag-browser.png)
+
 ## Scope: workspace, channel or one RTU
 
 - A **Workspace** display binds by full path and can mix points of any channel
@@ -79,6 +91,8 @@ names:
 
 The toolbar switches between **Run** and **Edit**. In edit mode:
 
+![Edit mode: the gauge is selected, the properties panel shows the display and the object](../assets/screenshots/scadascop-display-edit.png)
+
 - **Add..** lists the objects; click on the canvas to place one.
 - Click to select; drag to move, drag a handle to resize; arrows nudge by one
   pixel (<kbd>Shift</kbd>: one grid step).
@@ -95,6 +109,38 @@ The toolbar switches between **Run** and **Edit**. In edit mode:
   (<kbd>Del</kbd>), **Grid**, **Snap** and the zoom.
 - The properties panel edits the display (name, size, grid, background) and the
   selected object.
+
+![The Add.. menu lists the object kinds](../assets/screenshots/scadascop-display-add-menu.png)
+
+### Walkthrough: the feeder-bay display
+
+How the display at the top of this page was built, as a recipe for your own:
+
+1. **Tools › Displays › New display**, scope *SCADA/OS10* (the master's RTU), so
+   the objects bind by bare tag name and the display can later be reused for
+   another RTU with the same tags. Size 640 × 400, grid 8, **Snap** on.
+2. **Add.. › Shape** for the bus bar (a flat rectangle) and the feeder line (a
+   thin vertical one); **Add.. › Text label** for *Bus A1* and *Feeder 1*.
+3. **Add.. › Breaker / switch** on the line: tag `CB1_ST` (the double-bit
+   status), **command tag** `CB1_CMD`, square symbol. The breaker is red when
+   closed, green when open, blinks amber in between.
+4. **Add.. › Power flow** below the breaker: tag `P_MW`, Min −50, Max 50. The
+   dashes run down while power flows out of the bay and stop when the breaker
+   opens.
+5. **Add.. › LED / indicator**: tag `PROT_TRIP`, two states — *Normal* grey,
+   *TRIP* red with blink — and a label.
+6. Four **Value readouts** (`P_MW`, `Q_MVAR`, `UAB_KV`, `KWH`) with prefix text,
+   units and decimals; select the four and use **Align left** and **Same width**.
+7. A **Gauge** on `UAB_KV`, Min 120, Max 150, and three **Bars** on `IA_A`,
+   `IB_A`, `IC_A`, 0–300 A.
+8. A **Setpoint entry** on `TAP_SP` with **feedback tag** `TAP_POS`, and a
+   **Command button** on `CB1_CMD` with feedback `CB1_ST` — the operator's
+   two ways of acting on the bay.
+9. **Run**. Hover any object to see its tag and quality; click the button to
+   try the two-step command.
+
+**Export…** the result as a `.ssd` file and **Import…** it for the next feeder:
+only the tag names have to match.
 
 ## Objects
 
@@ -148,6 +194,12 @@ point windows:
    dialog reports the outcome (done, refused, timed out).
 
 With Two-step off, the first click executes directly.
+
+![The command dialog after the SELECT was confirmed: Execute or Cancel](../assets/screenshots/scadascop-display-command.png)
+
+A selection that is not executed within the RTU's select timeout (3 s on a
+DNP3 outstation by default) is reported as *operate refused: Timeout* — the
+same answer a real RTU gives an operator who waits too long.
 
 What goes out depends on whose point it is:
 

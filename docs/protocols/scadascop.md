@@ -6,10 +6,23 @@
 SCADAScop embeds every Master and Slave in one shell, organised into **groups**,
 with a single **Communication Monitor** across all protocols.
 
+![SCADAScop 2.0 with the demo workspace: Channels tree, an HMI display, the master's point map and an outstation's script](../assets/screenshots/scadascop-overview.png)
+
+!!! tip "Demo workspace"
+    `docs/sample-workspaces/feeder-demo.ssw` (with `feeder_bay.lua` and
+    `SCADAScop.svg` beside it) is the workspace in the picture: a DNP3
+    outstation driven by a [script](../shared/scripting-examples.md), the
+    master that polls it and a [display](../shared/displays.md) over the
+    master's points. Open it and press **Start all**.
+
 ## Highlights
 
 - **[RTU scripting](../shared/scripting.md)** (2.0) — every slave RTU can run a
-  Lua script that accepts, refuses or delays commands and drives the simulation.
+  Lua script that accepts, refuses or delays commands and drives the simulation;
+  with a [library](../shared/scripting-library.md) of breakers, bays, tap
+  changers and signals, and a page of [examples](../shared/scripting-examples.md).
+- **[Watch window](../shared/watch.md)** (2.0) — **Tools › Watch**: read-only
+  lists of points of any channel with value, quality, age and change count.
 - **[HMI displays](../shared/displays.md)** (2.0) — **Tools › Displays**: operator
   screens over any master or slave point, with select-before-operate commands.
 - **[Windows and monitors](../shared/windows.md)** (2.0) — drag any window out of
