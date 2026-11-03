@@ -9,12 +9,12 @@ under [github.com/CommunicationTools](https://github.com/CommunicationTools). Us
 
 | Tool | Version |
 |---|---|
-| ModbusScop Master | 2.7 |
-| ModbusScop Slave | 2.7 |
-| DNPScop Master | 1.8 |
-| DNPScop Slave | 2.7 |
-| IEC104Scop Master / Slave | 1.8 / 1.7 |
-| IEC101Scop Master / Slave | 1.8 / 1.9 |
+| ModbusScop Master | 2.8 |
+| ModbusScop Slave | 2.8 |
+| DNPScop Master | 1.9 |
+| DNPScop Slave | 2.8 |
+| IEC104Scop Master / Slave | 1.9 / 1.8 |
+| IEC101Scop Master / Slave | 1.9 / 1.10 |
 | SCADAScop | 2.0 |
 | scopctl | 0.4 |
 
@@ -22,10 +22,42 @@ Each tool is published in three builds — **Windows 10 / 11** (`win64`),
 **Windows 7 SP1** (`win7`) and **Linux x86_64** (`linux-x86_64`); see
 [Install](getting-started/install.md) and [Running on Linux](getting-started/linux.md).
 
-!!! note "The standalone tools are now frozen"
-    This is the last feature release of the standalone tools. New features are
-    developed in **SCADAScop**, which contains every tool; the standalone tools
-    remain available and receive fixes.
+!!! note "The standalone tools are frozen"
+    New features are developed in **SCADAScop**, which contains every tool; the
+    standalone tools remain available and receive fixes. The versions above are
+    their last standalone release.
+
+## Last standalone release
+
+One more upload of the frozen standalone tools with what their shared sources
+gained during the SCADAScop 2.0 round. Everything below is already in SCADAScop
+2.0; the SCADAScop-only features (HMI displays, Watch window, windows on several
+monitors, scopctl) are not in the standalone tools.
+
+- **ModbusScop Slave 2.8, DNPScop Slave 2.8, IEC104Scop Slave 1.8, IEC101Scop
+  Slave 1.10** — **RTU scripting**: right-click an RTU › **Script…**, tick the
+  **Tag** column of the points the script may use, then accept, reject or delay
+  commands and setpoints, react to value changes and timers, and simulate
+  breakers, bays, tap changers and load profiles with the built-in library. See
+  [RTU scripting](shared/scripting.md) and the [Script API](reference/script-api.md).
+- **ModbusScop Master 2.8** — one window per RTU with a tab per poll map;
+  **value lists** (enumerations and bit names) shown in the polled cells and
+  offered when writing; write maps keep the value of their last successful
+  write.
+- **ModbusScop Slave 2.8** — value lists; **command maps** (FC05 / 06 / 15 / 16
+  blocks); **On coil write**; Words / Bits view of the PLC memory; New Channel
+  creates a first RTU.
+- **DNPScop Master 1.9** — **Import to RTU** in the Live Data Map adds every
+  received point the Points map does not have yet.
+- **IEC104Scop / IEC101Scop Master 1.9** — Channel Settings are greyed while the
+  channel runs; a control or setpoint row shows the value last executed by the
+  RTU (positive ACTCON).
+- **IEC104Scop Slave 1.8 / IEC101Scop Slave 1.10** — the **Communication Tests**
+  window replaces the fault-injection panel of the Points window; Channel
+  Settings are greyed while the channel runs.
+- **All master tools** — a **Tag** column names points for SCADAScop's displays,
+  scripts and Watch window. **All tools** — the About text no longer shows a
+  garbled user-folder path.
 
 ## SCADAScop 2.0
 
