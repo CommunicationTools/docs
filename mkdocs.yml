@@ -123,4 +123,5 @@ nav:
       - Script API: reference/script-api.md
       - DNP3 message catalog: reference/dnp3-messages.md
       - Troubleshooting: reference/troubleshooting.md
+      - Status Messages: reference/status-messages.md
   - Release notes: release-notes.md
