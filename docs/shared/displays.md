@@ -74,8 +74,7 @@ bind.
 Because a scoped display only names tags, the same drawing works for every RTU
 that uses the same tag names: **Export…** it once as a `.ssd` file, then
 **Import…** it for each RTU. The file stays the display's source — edit the file
-(in SCADAScop or [DisplayLab](#displaylab)), then **Reload all**, and every RTU
-that uses it is updated. An RTU can have several displays.
+in SCADAScop, then **Reload all**, and every RTU that uses it is updated. An RTU can have several displays.
 
 In any text these placeholders are replaced, so one file shows each RTU's own
 names:
@@ -209,14 +208,6 @@ What goes out depends on whose point it is:
   command from its point window.
 - **A slave's own point** — no protocol is involved: the display drives the
   simulation, writing the command point and moving its feedback point at once.
-
-## DisplayLab
-
-**DisplayLab** is a separate development tool (built with *BuildAll*, not part of
-the release) for drawing and tuning displays without a plant: it simulates tags
-(hold, sine, ramp, random walk, toggle, pulse) and answers commands with
-configurable select / execute delays, refusals and feedback. Its `.ssd` files are
-the same as SCADAScop's exports.
 
 ## Workspace storage
 

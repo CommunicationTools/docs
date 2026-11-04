@@ -76,7 +76,7 @@ Object blocks start with `Kind=` (`Text`, `Value`, `Led`, `Bar`, `Shape`,
 `Breaker`, `Button`, `Setpoint`, `Flow`, `Gauge`, `Image`), `Id=` and `Rect=`
 (`x y w h`), then the binding (`Tag`, `FeedbackTag`, `CmdTag`) and appearance
 keys (`Shape`, `Radius`, `Dir` for shapes; `VisTag`, `VisOp`, `VisValue` for
-visibility). A `.ssd` file (Export, DisplayLab) holds the same blocks. `ShowDisplays=1`
+visibility). An exported `.ssd` file holds the same blocks. `ShowDisplays=1`
 in `[Workspace]` reopens the Displays window.
 
 ## Watch lists
