@@ -38,6 +38,12 @@ moves every one of them back into the main window. A window whose monitor is no
 longer connected comes back on its own at the next start. To keep every window
 inside the main window, turn off **View → Windows outside the main window**.
 
+## What does this status message mean?
+
+Every line the **Status Messages** window can print about the protocol —
+time-outs, missing confirms, refused commands, link resets, TLS results — is
+listed per tool in the [Status Messages reference](status-messages.md).
+
 ## Capturing for a bug report
 
 A short **[PCAP](../shared/pcap.md)** that reproduces the problem, plus the
