@@ -15,7 +15,7 @@ under [github.com/CommunicationTools](https://github.com/CommunicationTools). Us
 | DNPScop Slave | 2.9 |
 | IEC104Scop Master / Slave | 1.9 / 1.8 |
 | IEC101Scop Master / Slave | 1.9 / 1.10 |
-| SCADAScop | 3.0 |
+| SCADAScop | 2.1 |
 | scopctl | 0.4 |
 
 Each tool is published in three builds — **Windows 10 / 11** (`win64`),
@@ -26,42 +26,6 @@ Each tool is published in three builds — **Windows 10 / 11** (`win64`),
     New features are developed in **SCADAScop**, which contains every tool; the
     standalone tools remain available and receive fixes (DNPScop Slave 2.9 is
     such an upload: a feature of the shared DNP3 core).
-
-## SCADAScop 3.0
-
-- **SNMP Master and SNMP Slave** (SCADAScop only): SNMPv1, v2c and v3 — USM
-  authentication MD5 / SHA-1 / SHA-224 / 256 / 384 / 512, privacy DES /
-  AES-128 / 192 / 256 (with the "-C" key extension). **New Channel › SNMP**,
-  role *Master* or *Slave*. See [SNMP](protocols/snmp.md).
-- **Objects without a MIB.** A device's objects, tables, notifications and
-  named types are kept complete in the workspace and edited by hand; **Import
-  MIB…** copies a MIB's objects in, **Export MIB…** writes the device as an
-  SMIv2 module, and the slave's **Import walk…** turns an `snmpwalk` capture or
-  `.snmprec` file into a simulated device.
-- **SNMP Slave**: simulated agents with editable and simulated values,
-  communities, views and v3 users, traps and informs, Communication Tests
-  (deliberate faults) and Lua RTU scripting with `notify()`.
-- **SNMP Master**: several devices per channel, poll groups, SET, a Request
-  window, an Events window for traps and informs, and **Device Discovery** —
-  walk what a device has (Quick / Standard / Deep / Custom profiles) and import
-  it into the device (**Discover (walk)…** in the device's Objects window and
-  right-click menu); **Import walk…** reads a saved walk into a master device too.
-  Values reach displays, the Watch window and charts.
-- **Slave → master copy**: a copied slave device pasted under a master channel
-  brings its definitions, the agent's address / version / credentials, and is
-  polled at once. The standard SNMPv2-MIB scalars are named without a MIB file.
-- **From MIB Library…** imports a loaded module's objects into a device;
-  **Delete objects…** deletes ticked objects; Device Discovery ticks cascade
-  through the tree, with Tick all / Untick all.
-- **Row selection and bulk edits** in the SNMP Scalars tabs, as in the other
-  protocols (Select all, Clear, Delete selected; a change on a selected row applies
-  to the whole selection).
-- **MIB Library**: right-click a module › Remove from library; a Files list with
-  Remove / Restore; files loaded by hand are kept across restarts.
-- **HCNUM-TC built in** (RFC 2856): MIBs using `CounterBasedGauge64` /
-  `ZeroBasedCounter64` load without that file.
-- **Tools › SNMP MIB Library**: your MIB folders, the modules found and an OID
-  browser. No MIB files ship with the tool.
 
 ## SCADAScop 2.1 / DNPScop Slave 2.9
 

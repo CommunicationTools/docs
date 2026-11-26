@@ -104,15 +104,6 @@ The Master can react to the outstation's IIN bits: clear a reported restart
 (IIN1.7 → WRITE g80), sync the clock on IIN1.4, re-poll on buffer overflow
 (IIN2.3), and so on. These are per-outstation settings.
 
-### Quality flags
-
-The flags column of the Live Data Map, the point map and the event log shows the
-raw flag octet and the names of the bits set, read by the point's data type
-(see [Quality flags by data type](#quality-flags-by-data-type)): `0x21
-(Online,Chatter)` on a binary input, `0x41 (Online,RefErr)` on an analog,
-`0x61 (Online,Rollover,Discont)` on a counter. The state bits of the binary
-types are the value, so they are part of the hex but are not named.
-
 ---
 
 ## DNPScop Slave
@@ -122,39 +113,6 @@ types are the value, so they are part of the hex but are not named.
 Add outstations to a channel, give each a link address and points, and start the
 channel. Edit point values in the map to drive the data the master reads;
 event-class points generate events, optionally delivered unsolicited.
-
-### Quality flags by data type
-
-The **flags** button of a point row (advanced columns) and the **Point Detail**
-window (double-click a row) offer the quality bits of the point's own data type.
-Bits 0 to 4 are the same everywhere; bits 5 and 6 depend on the type:
-
-| Bit | Binary input | Double-bit input | Binary output status | Counter / frozen counter | Analog input / analog output status |
-|---|---|---|---|---|---|
-| 0 (`0x01`) | Online | Online | Online | Online | Online |
-| 1 (`0x02`) | Restart | Restart | Restart | Restart | Restart |
-| 2 (`0x04`) | Comm Lost | Comm Lost | Comm Lost | Comm Lost | Comm Lost |
-| 3 (`0x08`) | Remote Forced | Remote Forced | Remote Forced | Remote Forced | Remote Forced |
-| 4 (`0x10`) | Local Forced | Local Forced | Local Forced | Local Forced | Local Forced |
-| 5 (`0x20`) | Chatter Filter | Chatter Filter | reserved | Rollover | Over Range |
-| 6 (`0x40`) | reserved | state | reserved | Discontinuity | Reference Error |
-| 7 (`0x80`) | state | state | state | reserved | reserved |
-
-Toggling a flag with the **flags** button sends one event with the current
-value and the new quality; in Point Detail the flags go out with **Apply
-update**. With several rows selected the **flags** button changes all of them;
-a row of another data type takes only the bits its type has. Notes:
-
-- **Over Range** is also set by the slave itself when the value does not fit
-  the variation being sent (for example a 16-bit analog above 32767).
-- **Rollover** is obsolete since IEEE 1815-2012 (outstations should not set it,
-  masters should ignore it). It is offered so that a master's handling of older
-  devices can be tested; the slave does not set it when a counter wraps. Bit 5
-  is set by the slave in one case: a count above 65535 sent in a 16-bit
-  variation goes out as 65535 with the bit set.
-- In scripts the bits are `Q.ONLINE`, `Q.RESTART`, `Q.COMM_LOST`,
-  `Q.REMOTE_FORCED`, `Q.LOCAL_FORCED`, `Q.CHATTER_FILTER`, `Q.OVER_RANGE`,
-  `Q.REFERENCE_ERR`, `Q.ROLLOVER` and `Q.DISCONTINUITY`.
 
 ### Points per object group
 
