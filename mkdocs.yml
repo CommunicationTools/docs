@@ -109,6 +109,7 @@ nav:
       - DNP3: protocols/dnp3.md
       - IEC 60870-5-104: protocols/iec104.md
       - IEC 60870-5-101: protocols/iec101.md
+      - SNMP: protocols/snmp.md      
       - SCADAScop: protocols/scadascop.md
   - How-to:
       - Poll a device: how-to/poll-a-device.md
