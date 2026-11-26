@@ -363,6 +363,46 @@ Monitor as `<reason> - closing connection`.
 
 ---
 
+## SNMP Master
+
+SNMP runs over UDP: there is no connection, so the lines are about each
+**device** (`<channel>: <device>: …`) and about the notification receiver.
+
+### Channel and devices
+
+| Message | Meaning |
+|---|---|
+| `polling from <local address>:<port>` | The channel started; the devices are polled from this local UDP port. |
+| `start failed: <reason>` | The UDP socket could not be opened (address not of this machine, port taken). |
+| `<device>: online` | The device answered (a poll, or the `sysUpTime` probe when nothing is polled yet). |
+| `<device>: offline (timeout)` | No answer within the timeout and retries: wrong address / port, the agent is down, a firewall, or a wrong v1 / v2c community (agents drop those silently). |
+| `<device>: auth error (report … usmStats…)` | SNMPv3 refused: `usmStatsUnknownUserNames` (user name), `usmStatsWrongDigests` (authentication password / protocol), `usmStatsDecryptionErrors` (privacy password / protocol), `usmStatsUnsupportedSecLevels` (security level not allowed for the user), `usmStatsNotInTimeWindows` (clock — persists after one resynchronisation). |
+| `<device>: <error>` | The device's settings cannot be used (host name not resolved, v3 user incomplete). It stays offline until fixed. |
+| `notification port <n>: <reason> - notifications are not received (polling goes on)` | The trap / inform receiver could not listen. Ports below 1024 may need administrator rights or be taken by the Windows **SNMP Trap** service — use another port such as 1162. |
+| `SET written` / `SET failed: <reason>` | The answer to **Write value (SET)**: written, or the agent's error-status (`notWritable`, `wrongType`, `wrongValue`, `noAccess`, …) or a timeout. |
+| `Device Discovery import: …` | The result of **Import to device**: how many values came in, how many objects were named from SNMPv2-MIB or the MIB Library, how many were inferred, how many are newly polled. |
+| `Device Discovery: <peer>: <reason>` | Device Discovery could not start or stopped with an error (socket, v3 user / keys). |
+| `walk file import: …` / `walk file: <reason>` | The same for **Import walk…**, or why the file could not be read. |
+| `<device>: <n> definition row(s) not understood` / `<n> poll row(s) not understood` | Rows of a workspace or pasted device that the tool could not read; the rest was loaded. |
+
+Received traps and informs go to the **Events** window, not to Status Messages.
+
+## SNMP Slave
+
+| Message | Meaning |
+|---|---|
+| `serving SNMP on <address>:<port>` | The agent is listening. |
+| `start failed: <reason>` | The port could not be opened — taken (by the Windows **SNMP Service** on 161, or another agent), or below 1024 without administrator rights. |
+| `authentication failure from <peer>: <reason>` | A request was refused: `unknown community` (v1 / v2c), or for v3 `usmStatsUnknownUserNames`, `usmStatsWrongDigests`, `usmStatsDecryptionErrors`, `usmStatsUnsupportedSecLevels`. The agent also sends the `authenticationFailure` trap when that is enabled. |
+| `trap <name> -> <target>: sent` | A trap went out (on change, Send now, a script's `notify`, coldStart). |
+| `inform <name> -> <target>: acknowledged` / `timeout` / `report` / `error` / `cancelled` | An inform's outcome: the manager confirmed it; no answer after the retries; the manager answered with a v3 report (user / keys / engine ID do not match); sending failed; it was cancelled (channel stopped). |
+| `notification target <target>: <reason>` / `notification target <target>: no v3 user <name>` | A notification target cannot be used (address, or a v3 target naming a user the device does not have). |
+| `<instance> set outside its syntax (a manager's SET would be refused)` | You typed a value the object's definition does not allow (range, size, enumeration); it was stored anyway for testing. |
+| `one device per channel - the extra device is ignored` / `the pasted / imported device replaces the channel's device` | A slave channel holds one device. |
+| `an engine ID is 5..32 octets of hex` | The engine ID typed in the Access window is not valid. |
+
+---
+
 ## P2P monitor
 
 The P2P channel sits between a master and an RTU; its lines are prefixed with

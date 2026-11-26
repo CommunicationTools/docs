@@ -14,8 +14,8 @@ Points of any protocol and role can sit in the same list:
 - **Add points…** in the window's toolbar lists every point by channel › RTU ›
   type. Filter by name, tag, type or key; click / Ctrl+click / Shift+click to
   select, double-click to add one, **Add N to …** for the selection.
-- **Right-click a row** of a master's map (DNP3, IEC 104 / 101) or poll window
-  (Modbus) › **Add to watch**. In a Modbus poll window the row header's menu adds
+- **Right-click a row** of a master's map (DNP3, IEC 104 / 101), poll window
+  (Modbus) or an SNMP Master device's Objects window › **Add to watch**. In a Modbus poll window the row header's menu adds
   the whole row.
 - **Right-click a point** in a slave's points window (DNP3, IEC 104 / 101) or a
   cell of a Modbus slave's block / PLC memory › **Add to watch**.
@@ -45,7 +45,7 @@ from the memory window's right-click menu.
 |---|---|
 | **Name** | the point's name, its tag, or a label of your own (double-click) |
 | **Value** | engineering value with units; binaries as `ON (1)` / `OFF (0)`, double-bits as `OFF (1)`, `ON (2)`, `INTERMEDIATE (0)`, `INDETERMINATE (3)`. Tinted orange when the quality is not good |
-| **Quality** | decoded flags: DNP3 `ONLINE`, `COMM_LOST`, `RESTART`, `LOCAL_FORCED`, `OVER_RANGE`…; IEC `good`, `IV`, `NT`, `SB`, `BL`, `OV`. Modbus carries none (`-`); hover for the raw byte |
+| **Quality** | decoded flags: DNP3 `ONLINE`, `COMM_LOST`, `RESTART`, `LOCAL_FORCED`, `OVER_RANGE`…; IEC `good`, `IV`, `NT`, `SB`, `BL`, `OV`; SNMP what the last poll gave: `good`, `timeout`, `noSuchObject`, `noSuchInstance`, `endOfMibView`, `error-status`, `security report`, `not polled`. Modbus carries none (`-`); hover for the raw byte |
 | **Updated** / **Age** | arrival time of the last update (in the Time & Date frame) and how long ago that was — a stale point stands out by its age |
 | **Changes** | value changes since the point was added or the counter reset; hover for the time of the last change |
 | **Protocol**, **Channel**, **RTU**, **Type**, **Address** | where the point lives |

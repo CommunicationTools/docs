@@ -13,6 +13,7 @@ Created and developed by **Carlos Nardi**.
 | DNP3 (IEEE 1815) | DNPScop Master | DNPScop Slave |
 | IEC 60870-5-104 | IEC104Scop Master | IEC104Scop Slave |
 | IEC 60870-5-101 | IEC101Scop Master | IEC101Scop Slave |
+| SNMP v1 / v2c / v3 | SNMP Master (SCADAScop only) | SNMP Slave (SCADAScop only) |
 | All of the above | **SCADAScop** (embeds every tool) | |
 
 ## What you can do with them

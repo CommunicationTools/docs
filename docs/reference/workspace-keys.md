@@ -88,7 +88,7 @@ displays; nothing is written while there is no list.
 |---|---|
 | `Name` | the tab's name |
 | `Active=1` | the tab shown when saved (only with several lists) |
-| `Point=<key>[\|label]` | one line per watched point, in order: the point key (`dnp:4/1/AI/0`, `iec104:2/ca1/MV/4001`, `mb:2/rtu1/HR/0`, a slave's `dnps:` / `iec104s:` / `mbs:` ...) and the optional label |
+| `Point=<key>[\|label]` | one line per watched point, in order: the point key (`dnp:4/1/AI/0`, `iec104:2/ca1/MV/4001`, `mb:2/rtu1/HR/0`, `snmp:5/1/o/1.3.6.1.2.1.1.3.0` (channel / device / `o` / instance OID), a slave's `dnps:` / `iec104s:` / `mbs:` / `snmps:` ...) and the optional label |
 
 `ShowWatch=1` in `[Workspace]` reopens the window.
 

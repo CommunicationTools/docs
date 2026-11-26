@@ -41,6 +41,23 @@ examples in [Script library](../shared/scripting-library.md), and
 | `cancel(id)` | stops a timer |
 | `wait_ms(ms)` | inside a handler or timer: suspend, resume later |
 
+## SNMP Slave
+
+A device's tags are its tagged instances (Objects window, **Tag** column). A
+manager's **SET** of a writable tagged object goes to `on_command` when the object
+has an enumeration (`cmd.state` is the enumeration's name) and to `on_setpoint`
+for numbers; `ACCEPT` lets the SET through, `REJECT(code)` answers with an
+error-status — SNMP's own names (`WRONG_VALUE`, `INCONSISTENT_VALUE`,
+`RESOURCE_UNAVAILABLE`, `NO_ACCESS`, `GEN_ERR`, `READ_ONLY`, `NOT_WRITABLE`, …) or
+the common ones above (`NOT_SUPPORTED` → inconsistentValue, `HARDWARE_ERROR` →
+genErr, `NOT_AUTHORIZED` → noAccess, `FORMAT_ERROR` → wrongValue, `LOCAL` /
+`TIMEOUT` → resourceUnavailable); an unknown code gives inconsistentValue.
+`return ACCEPT, 1500` holds the response.
+
+| Function | |
+|---|---|
+| `notify(name, { tag = v, ... })` | write the tags, then send the device's notification `name` (or `coldStart` / `warmStart`, or a numeric OID) as a trap or inform to its enabled targets; `true`, or `nil, err` (no such notification, channel not running, no enabled target). Other protocols: not supported |
+
 ## Decisions
 
 ```lua
